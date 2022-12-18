@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "A plugin that enables Rails App using Aliyun OSS."
   spec.description = "A plugin that enables Rails App using Aliyun OSS, this gem depends on aliyunoss gem."
-  spec.homepage = "https://rubygems.org/gems/activestorage-aliyunoss"
+  spec.homepage = "https://rubygems.org/gems/aliyunoss-activestorage-adapter"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
