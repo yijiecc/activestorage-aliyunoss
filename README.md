@@ -39,6 +39,14 @@ Active Storage的配置文件在/config/storage.yml文件中，请添加以下�
 
 配置完成后，可以按照[Active Storage](https://edgeguides.rubyonrails.org/active_storage_overview.html)手册调用。
 
+## 运行测试用例
+
+下载源代码后，可以使用如下方法运行测试用例：
+
+    ALI_ACCESS_KEY="[阿里云开发者信息]" ALI_ACCESS_SECRET="[阿里云开发者信息]" bundle exec rspec
+
+测试运行前，请手动创建一个名为active-storage-spec的Bucket，Bucket所在地区为oss-cn-beijing。
+
 ## 开发
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
