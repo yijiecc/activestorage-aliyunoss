@@ -6,7 +6,7 @@
 
 在Rails工程中的Gemfile中添加以下代码：
 
-    gem "activestorage-aliyunoss", "~> 0.1"
+    gem "aliyunoss-activestorage-adapter", "~> 0.1"
 
 然后运行bundle install即可。
 

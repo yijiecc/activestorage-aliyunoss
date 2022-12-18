@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activestorage-aliyunoss (0.1.0)
+    aliyunoss-activestorage-adapter (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -111,8 +111,8 @@ PLATFORMS
 
 DEPENDENCIES
   activestorage (~> 7.0)
-  activestorage-aliyunoss!
   aliyunoss (~> 0.2)
+  aliyunoss-activestorage-adapter!
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop (~> 1.21)

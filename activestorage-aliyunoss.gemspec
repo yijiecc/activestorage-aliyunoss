@@ -3,7 +3,7 @@
 require_relative "lib/active_storage/service/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "activestorage-aliyunoss"
+  spec.name = "aliyunoss-activestorage-adapter"
   spec.version = ActiveStorage::AliyunossService::VERSION
   spec.authors = ["yiiecc"]
   spec.email = ["yijiecc@hotmail.com"]
