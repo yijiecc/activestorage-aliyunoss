@@ -1,24 +1,45 @@
-# Activestorage::Aliyunoss
+# ActiveStorage的阿里云存储适配器
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/activestorage/aliyunoss`. To experiment with that code, run `bin/console` for an interactive prompt.
+该Gem是一个Aliyun OSS插件，可为Rails 7.0的Active Storage添加阿里云对象存储接口。
 
-TODO: Delete this and the text above, and describe your gem
+## 安装方法
 
-## Installation
+在Rails工程中的Gemfile中添加以下代码：
 
-Install the gem and add to the application's Gemfile by executing:
+    gem "activestorage-aliyunoss", "~> 0.1"
 
-    $ bundle add activestorage-aliyunoss
+然后运行bundle install即可。
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+## 使用方法
 
-    $ gem install activestorage-aliyunoss
+### 配置文件
 
-## Usage
+Active Storage的配置文件在/config/storage.yml文件中，请添加以下配置信息：
 
-TODO: Write usage instructions here
+    aliyun:
+      service: "Aliyunoss"
+      
+      # 阿里云开发者信息
+      access_key_id: <%= ENV["ALI_ACCESS_KEY"] %>
+      access_key_secret: <%= ENV["ALI_ACCESS_SECRET"] %>
+      
+      # Bucket名称
+      bucket: "[Bucket_Name]"
+      
+      # Bucket位置
+      location: "oss-cn-beijing"
+      
+      # 根目录
+      path: "/"
+      
+      # 根据创建的Bucket访问类型选择
+      is_public: true
 
-## Development
+### 调用方法
+
+配置完成后，可以按照[Active Storage](https://edgeguides.rubyonrails.org/active_storage_overview.html)手册调用。
+
+## 开发
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
@@ -26,12 +47,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/activestorage-aliyunoss. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/activestorage-aliyunoss/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/yijiecc/activestorage-aliyunoss. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/yijiecc/activestorage-aliyunoss/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-## Code of Conduct
-
-Everyone interacting in the Activestorage::Aliyunoss project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/activestorage-aliyunoss/blob/master/CODE_OF_CONDUCT.md).

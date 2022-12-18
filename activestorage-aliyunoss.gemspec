@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
-require_relative "lib/activestorage/aliyunoss/version"
+require_relative "lib/active_storage/service/version"
 
 Gem::Specification.new do |spec|
   spec.name = "activestorage-aliyunoss"
-  spec.version = Activestorage::Aliyunoss::VERSION
-  spec.authors = ["Your Name"]
-  spec.email = ["you@example.com"]
+  spec.version = ActiveStorage::AliyunossService::VERSION
+  spec.authors = ["yiiecc"]
+  spec.email = ["yijiecc@hotmail.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.summary = "A plugin that enables Rails App using Aliyun OSS."
+  spec.description = "A plugin that enables Rails App using Aliyun OSS, this gem depends on aliyunoss gem."
+  spec.homepage = "https://little-farm.me"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
+  spec.metadata["allowed_push_host"] = "https://little-farm.me"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://little-farm.me"
+  spec.metadata["changelog_uri"] = "https://little-farm.me"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

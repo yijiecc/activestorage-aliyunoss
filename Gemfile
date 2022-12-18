@@ -12,3 +12,5 @@ gem "rspec", "~> 3.0"
 gem "rubocop", "~> 1.21"
 
 gem "activestorage", "~> 7.0"
+
+gem "aliyunoss", "~> 0.2"
