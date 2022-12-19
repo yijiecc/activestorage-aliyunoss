@@ -40,26 +40,18 @@ module ActiveStorage
       end
     end
 
-    # Update metadata for the file identified by +key+ in the service.
-    # Override in subclasses only if the service needs to store specific
-    # metadata that has to be updated upon identification.
-    def update_metadata(key, **metadata)
-      raise NotImplementedError
-    end
-
     # Return the content of the file at the +key+.
     def download(key)
-      @bucket.download(path_for(key))
+      if block_given?
+        yield @bucket.download(path_for(key))
+      else
+        @bucket.download(path_for(key))
+      end
     end
 
     # Return the partial content in the byte +range+ of the file at the +key+.
     def download_chunk(key, range)
       @bucket.download(path_for(key), Range: range)
-    end
-
-    # Concatenate multiple files into a single "composed" file.
-    def compose(source_keys, destination_key, filename: nil, content_type: nil, disposition: nil, custom_metadata: {})
-      raise NotImplementedError
     end
 
     # Delete the file at the +key+.
@@ -108,6 +100,7 @@ module ActiveStorage
     end
 
     # Returns a Hash of headers for +url_for_direct_upload+ requests.
+    # AliyunOSS API requires 'Date' header
     def headers_for_direct_upload(key, filename:, content_type:, content_length:, checksum:, custom_metadata: {})
       @bucket.direct_upload_headers(path_for(key), filename:, 
                                     content_type:, content_length:, checksum:, custom_metadata: {})
@@ -128,10 +121,6 @@ module ActiveStorage
 
     def public_url(key, **)
       "https://#{@bucket.name}.#{@bucket.location}.aliyuncs.com#{path_for(key)}"
-    end
-
-    def custom_metadata_headers(metadata)
-      raise NotImplementedError
     end
 
     def instrument(operation, payload = {}, &block)
