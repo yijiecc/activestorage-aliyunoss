@@ -127,7 +127,7 @@ module ActiveStorage
     end
 
     def public_url(key, **)
-      "https://#{@bucket}.#{@location}.aliyuncs.com#{path_for(key)}"
+      "https://#{@bucket.name}.#{@bucket.location}.aliyuncs.com#{path_for(key)}"
     end
 
     def custom_metadata_headers(metadata)

@@ -69,7 +69,7 @@ RSpec.describe ActiveStorage::Service::AliyunossService do
   end
 
   it "should generate public url" do
-    expect(service.url('sample.png')).not_to be nil
+    expect(service.url('sample.png')).to eq("https://active-storage-spec.oss-cn-beijing.aliyuncs.com/activestorage/sample.png")
   end
 
   private
