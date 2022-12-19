@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    aliyunoss-activestorage-adapter (0.1.4)
+    aliyunoss-activestorage-adapter (0.1.5)
       aliyunoss (~> 0.2)
 
 GEM
