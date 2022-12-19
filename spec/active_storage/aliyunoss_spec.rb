@@ -27,6 +27,18 @@ RSpec.describe ActiveStorage::Service::AliyunossService do
     io.close
   end
 
+  it "should generate upload headers" do
+    headers = service.headers_for_direct_upload('/key.dat', filename: "key.dat", content_type: 'application/json',
+                                            content_length: 12345, checksum: 'FTAuDEnR8VxB27E2XDidEw==',
+                                            custom_metadata: {})
+    expect(headers['Authorization']).not_to be nil
+    expect(headers['Content-MD5']).not_to be nil
+    expect(headers['Content-Type']).not_to be nil
+    expect(headers['Content-Length']).not_to be nil
+    expect(headers['Date']).not_to be nil
+    expect(headers['Content-Disposition']).not_to be nil
+  end
+
   it "should download file" do
     remote_data = service.download('sample.png')
     local_data = IO.read(File.join(__dir__, 'sample-file.png'))

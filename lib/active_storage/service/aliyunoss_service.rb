@@ -104,12 +104,13 @@ module ActiveStorage
     # You must also provide the +content_type+, +content_length+, and +checksum+ of the file
     # that will be uploaded. All these attributes will be validated by the service upon upload.
     def url_for_direct_upload(key, expires_in:, content_type:, content_length:, checksum:, custom_metadata: {})
-      raise NotImplementedError
+      public_url(key)
     end
 
     # Returns a Hash of headers for +url_for_direct_upload+ requests.
     def headers_for_direct_upload(key, filename:, content_type:, content_length:, checksum:, custom_metadata: {})
-      {}
+      @bucket.direct_upload_headers(path_for(key), filename:, 
+                                    content_type:, content_length:, checksum:, custom_metadata: {})
     end
 
     def public?
